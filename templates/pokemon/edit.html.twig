@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le Pokémon {{ pokemon.name }}{% endblock %}
+
+{% block body %}
+
+    <div class="text-center mb-5">
+        <img src="{{ asset('images/pokemon.png') }}" alt="Logo Pokémon" class="img-fluid" style="max-width: 400px;">
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Modifier le Pokémon</h1>
+
+        <div class="card p-4" style="background-color: white;">
+            {{ form_start(form, {'attr': {'class': 'form-group'}}) }}
+
+            <div class="mb-3">
+                {{ form_label(form.name, 'Nom du Pokémon', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.type, 'Type du Pokémon', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+
+            {{ form_end(form) }}
+        </div>
+
+        <div class="text-center mt-5 mb-5">
+            <a href="{{ path('pokemon_list') }}" class="btn btn-secondary">Voir la liste des Pokémons</a>
+            <a href="{{ path('app_pokemon') }}" class="btn btn-success">Ajouter un nouveau Pokémon</a>
+        </div>
+    </div>
+
+{% endblock %}

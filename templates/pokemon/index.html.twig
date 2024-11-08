@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Pokémon{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <img src="{{ asset('images/pokemon.png') }}" alt="Logo Pokémon" class="img-fluid" style="max-width: 400px;">
+
+        </div>
+
+        <h1 class="text-center mb-5">Ajouter un Pokémon</h1>
+
+
+        <div class="card p-4" style="background-color: white;">
+            {{ form_start(form, {'attr': {'class': 'form-group'}}) }}
+
+            <div class="mb-3">
+                {{ form_label(form.name, 'Nom du Pokémon', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.type, 'Type du Pokémon', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+            {{ form_end(form) }}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ path('pokemon_list') }}" class="btn btn-outline-secondary" style="background-color: blue; color: white;">Voir la liste des Pokémons</a>
+        </div>
+    </div>
+{% endblock %}
